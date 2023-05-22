@@ -22,7 +22,7 @@ public class ConexaoDocker {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/Samuel");
         dataSource.setUsername("root");
-        dataSource.setPassword("3lite016");
+        dataSource.setPassword("urubu100");
         this.connection = new JdbcTemplate(dataSource);
     }
     public JdbcTemplate getConnection() {

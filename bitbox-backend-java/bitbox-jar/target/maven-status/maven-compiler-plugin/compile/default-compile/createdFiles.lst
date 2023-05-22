@@ -3,12 +3,15 @@ samuel\projeto\individual\TesteApi$1.class
 com\github\britooo\looca\api\group\rede\RedeInterface.class
 livia\prototipo\bitbox\Login$1.class
 livia\prototipo\bitbox\ConexaoDocker.class
+samuel\projeto\individual\Logado$2.class
+samuel\projeto\individual\Logado$1.class
 livia\prototipo\bitbox\Login.class
 com\github\britooo\looca\api\group\discos\DiscoGrupo.class
 livia\prototipo\bitbox\LoginCLI.class
 com\github\britooo\looca\api\group\discos\Disco.class
 com\github\britooo\looca\api\group\processador\ProcessadorCacheLoader.class
 livia\prototipo\bitbox\Inicio.class
+samuel\projeto\individual\Logado.class
 com\github\britooo\looca\api\group\rede\Rede.class
 livia\prototipo\bitbox\Login$3.class
 com\github\britooo\looca\api\group\rede\RedeParametros.class

@@ -33,11 +33,10 @@ public class TesteApi {
 
                 Looca looca = new Looca();
                 Sistema sistema = new Sistema();
-                Memoria memoria = new Memoria();
                 Processador processador = new Processador();
 
-//              con.update("insert into Registro(cpu_uso, ram_uso, ram_disponivel, disco_capacidade_disponivel) values (?, ?, ?, GETDATE(), ?,? )", processador.getUso(), memoria.getEmUso(), temperatura.getTemperatura(), numeroDeIdentificacaoDoTotem, login);
-                con2.update("insert into  Registro(cpu_uso, ram_uso, ram_disponivel,  momento, fkMaquina, fkMaquinaEmpresa)  values (?, ?, ?, now(), 1, 1)", processador.getUso(), memoria.getEmUso(), memoria.getDisponivel());
+//              con.update("insert into Registro2(cpu_uso, ram_uso, ram_disponivel, disco_capacidade_disponivel) values (?, ?, ?, GETDATE(), ?,? )", processador.getUso(), memoria.getEmUso(), temperatura.getTemperatura(), numeroDeIdentificacaoDoTotem, login);
+                con2.update("insert into  Registro(cpu_uso, momento, fkMaquina, fkMaquinaEmpresa)  values ( ?, now(), 1, 1)", processador.getUso());
                 System.out.println("Dados inseridos no banco...");
 
                 System.out.println("Sistema");
@@ -48,12 +47,12 @@ public class TesteApi {
 
                 System.out.println("Memoria Em uso");
                 System.out.println("-------------------------------------------------------------------");
-                System.out.println(memoria.getEmUso());
+//                System.out.println(memoria.getEmUso());
                 System.out.println("-------------------------------------------------------------------");
 
                 System.out.println("Memoria Disponivel");
                 System.out.println("-------------------------------------------------------------------");
-                System.out.println(memoria.getDisponivel());
+//                System.out.println(memoria.getDisponivel());
                 System.out.println("-------------------------------------------------------------------");
                 
                 System.out.println("Processador");
@@ -71,7 +70,8 @@ public class TesteApi {
         } else {
             new Runnable() {
                 public void run() {
-                    new TesteApi().setVisible(true);
+                    Logado logado = new Logado();
+                    logado.main(login, senha);
                 }
             };
             AtualizaDados(login, senha);

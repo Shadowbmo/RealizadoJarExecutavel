@@ -26,6 +26,7 @@ package livia.prototipo.bitbox;
 import java.awt.GraphicsEnvironment;
 import java.util.List;
 import java.util.Scanner;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -37,6 +38,7 @@ public class Inicio {
     public static void main(String[] args) {
         if (GraphicsEnvironment.isHeadless()) {
             Conexao conexao = new Conexao();
+            Usuario user = null;
             JdbcTemplate con = conexao.getConnection();
 
             Scanner scanner = new Scanner(System.in);
@@ -46,13 +48,13 @@ public class Inicio {
             System.out.println("Informe sua senha");
             String senha = scanner.nextLine();
 
-            List<Usuario> usuarios = con.query("select * from usuario where email = ? and senha = ?",
-                    new UsuarioRowMapper(), email, senha);
+           user = con.queryForObject("select * from Usuario where email = ? and senha = ?",
+                    new BeanPropertyRowMapper<>(Usuario.class), email, senha);
 
             System.out.println("Autenticando. Aguarde...");
 
-            System.out.println(usuarios);
-            if (usuarios.size() > 0) {
+            System.out.println(user);
+            if (user != null) {
                 samuel.projeto.individual.TesteApi teste = new samuel.projeto.individual.TesteApi();
                 teste.main(email, senha);
             } else {
